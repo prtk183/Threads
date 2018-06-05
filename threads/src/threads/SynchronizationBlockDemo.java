@@ -28,12 +28,16 @@ public class SynchronizationBlockDemo {
 				obj.printTable(5);
 			}
 		};
+		
 		Thread t2 = new Thread() {
 			public void run() {
 				obj.printTable(100);
 			}
 		};
 		
+		t1.setName("First");
+		t2.setName("Second");
+		t2.setPriority(Thread.MAX_PRIORITY);
 		t1.start();
 		t2.start();
 	}
